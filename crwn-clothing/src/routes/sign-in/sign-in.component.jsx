@@ -1,10 +1,14 @@
 import { Fragment } from "react";
+import { loginGoogleUser } from "../../remote/google-users";
 import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 
 function SignIn() {
     const logGoogleUser = async () => {
         const response = await signInWithGooglePopup();
-        console.log(response);
+        let jsonEmail = JSON.stringify({ email: response.user.email });
+        console.log(jsonEmail);
+        const golangResponse = await loginGoogleUser(jsonEmail);
+        // response.addCookie(response.user.accessToken)
     };
     return (
         <Fragment>
