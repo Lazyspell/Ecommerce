@@ -1,30 +1,28 @@
 import React, { Fragment } from "react";
-import { GoogleLogin, useGoogleLogin } from "react-google-login";
+import { GoogleLogin } from "react-google-login";
+import { loginGoogleTest } from "../../remote/google-users";
 
 const clientId = process.env.GOOGLE_CLIENT;
 
 function GLogin() {
-    const onSuccess = (res) => {
-        console.log("[Login Success] currentUser: ", res.profileObj);
+    const onSuccess = async (res) => {
+        const googleTest = await loginGoogleTest();
+        console(googleTest);
     };
-
     const onFailure = (res) => {
-        console.log("[Login Failed] res: ", res);
+        console.log("test");
     };
 
-    const { signIn } = useGoogleLogin({
-        onSuccess,
-        onFailure,
-        clientId,
-        isSignedIn: true,
-        accessType: "offline",
-    });
     return (
         <Fragment>
-            <button onClick={signIn} className="button">
-                <img src="icons/google.svg"></img>
-                <span className="buttonText">Sign in with Google</span>
-            </button>
+            <GoogleLogin
+                clientId={clientId}
+                buttonText="Login"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                style={{ marginTop: "100px" }}
+                isSignedIn={true}
+            />
         </Fragment>
     );
 }

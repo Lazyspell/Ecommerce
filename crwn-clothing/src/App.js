@@ -13,7 +13,6 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="/shop" />
                 <Route path="/sign-in" element={<SignIn />} />
-                <Route path="/google-sign-in" element={<GLogin />} />
             </Route>
         </Routes>
     );
