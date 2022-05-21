@@ -1,15 +1,15 @@
 import { Fragment } from "react";
-import SignInForm from "../../components/login-form/login-form.component";
 import GLogin from "../../components/login-form/golang-google-sign-in.component";
+import SignUpForm from "../../components/sign-up-form/sign-up-forum.component";
 
-function SignIn() {
+function SignUp() {
     return (
         <Fragment>
-            <h1>Sign In Page</h1>
+            <h1>Sign Up Page</h1>
             <GLogin />
-            <SignInForm />
+            <SignUpForm />
         </Fragment>
     );
 }
 
-export default SignIn;
+export default SignUp;

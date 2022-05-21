@@ -1,0 +1,19 @@
+import { ecommerceClient } from "./ecommerce-client";
+
+export async function loginUser(email, password) {
+    let response = await ecommerceClient.post("/login", {
+        email: email,
+        password: password,
+    });
+    return response;
+}
+
+export async function newUser(first_name, last_name, email, password) {
+    let response = await ecommerceClient.post("/users/new", {
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        password: password,
+    });
+    return response;
+}
