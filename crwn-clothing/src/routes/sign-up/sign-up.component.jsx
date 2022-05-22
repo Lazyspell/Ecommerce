@@ -7,6 +7,7 @@ function SignUp() {
         <Fragment>
             <h1>Sign Up Page</h1>
             <GLogin />
+            <h2>Google Sign Up</h2>
             <SignUpForm />
         </Fragment>
     );

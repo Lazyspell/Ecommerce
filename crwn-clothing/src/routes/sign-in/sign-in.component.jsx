@@ -6,6 +6,7 @@ function SignIn() {
     return (
         <Fragment>
             <h1>Sign In Page</h1>
+            <h2>Google Sign In</h2>
             <GLogin />
             <SignInForm />
         </Fragment>

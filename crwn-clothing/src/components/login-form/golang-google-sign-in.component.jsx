@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { loginGoogleUser } from "../../remote/google-users";
 import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import Button from "../button/button.component";
 
 function GLogin() {
     const logGoogleUser = async () => {
@@ -16,8 +17,9 @@ function GLogin() {
 
     return (
         <Fragment>
-            <h2>Sign In with Google</h2>
-            <button onClick={logGoogleUser}>Sign in with Google Popup</button>
+            <Button buttonType="google" onClick={logGoogleUser}>
+                Google
+            </Button>
         </Fragment>
     );
 }

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { loginUser, newUser } from "../../remote/user";
+import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
+import "./sign-up-form.styles.scss";
 
 const defaultFormFields = {
     first_name: "",
@@ -48,8 +50,9 @@ const SignUpForm = () => {
         }
     };
     return (
-        <div>
-            <h2>Sign Up</h2>
+        <div className="sign-up-container">
+            <h2>Don't have an account?</h2>
+            <span>Sign up with your email and password</span>
             <form onSubmit={handleNewUser}>
                 <FormInput
                     label="First Name"
@@ -91,7 +94,7 @@ const SignUpForm = () => {
                     name="confirm_password"
                     value={confirm_password}
                 />
-                <button>Sign Up</button>
+                <Button type="submit">Sign Up</Button>
             </form>
         </div>
     );

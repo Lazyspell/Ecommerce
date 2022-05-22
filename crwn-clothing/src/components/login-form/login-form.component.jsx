@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { loginUser } from "../../remote/user";
+import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 
 const defaultFormFields = {
@@ -59,7 +60,7 @@ const SignInForm = () => {
                     name="password"
                     value={password}
                 />
-                <button>Login</button>
+                <Button>Login</Button>
             </form>
         </div>
     );
