@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { loginUser } from "../../remote/user";
+import FormInput from "../form-input/form-input.component";
 
 const defaultFormFields = {
     email: "",
@@ -42,16 +43,16 @@ const SignInForm = () => {
         <div>
             <h2>Sign in with your email and your password</h2>
             <form onSubmit={handleLogin}>
-                <label>Email</label>
-                <input
+                <FormInput
+                    label="Email"
                     type="email"
                     required
                     onChange={handleChange}
                     name="email"
                     value={email}
                 />
-                <label>Password</label>
-                <input
+                <FormInput
+                    label="Password"
                     type="password"
                     required
                     onChange={handleChange}
