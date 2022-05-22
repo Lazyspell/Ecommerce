@@ -2,6 +2,8 @@ import { useState } from "react";
 import { loginUser } from "../../remote/user";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
+import GLogin from "./golang-google-sign-in.component";
+import "./login-form.scss";
 
 const defaultFormFields = {
     email: "",
@@ -41,7 +43,7 @@ const SignInForm = () => {
         setFormFields({ ...formFields, [name]: value });
     };
     return (
-        <div>
+        <div className="login-form-container">
             <h2>Sign in with your email and your password</h2>
             <form onSubmit={handleLogin}>
                 <FormInput
@@ -60,7 +62,10 @@ const SignInForm = () => {
                     name="password"
                     value={password}
                 />
-                <Button>Login</Button>
+                <div className="buttons-container">
+                    <Button>Login</Button>
+                    <GLogin />
+                </div>
             </form>
         </div>
     );

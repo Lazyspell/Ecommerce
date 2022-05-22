@@ -2,6 +2,7 @@ import { useState } from "react";
 import { loginUser, newUser } from "../../remote/user";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
+import GLogin from "../login-form/golang-google-sign-in.component";
 import "./sign-up-form.styles.scss";
 
 const defaultFormFields = {
@@ -94,7 +95,10 @@ const SignUpForm = () => {
                     name="confirm_password"
                     value={confirm_password}
                 />
-                <Button type="submit">Sign Up</Button>
+                <div className="buttons-container">
+                    <Button type="submit">Sign Up</Button>
+                    <GLogin />
+                </div>
             </form>
         </div>
     );
