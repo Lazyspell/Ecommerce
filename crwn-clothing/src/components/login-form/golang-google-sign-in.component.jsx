@@ -17,7 +17,7 @@ function GLogin() {
 
     return (
         <Fragment>
-            <Button buttonType="google" onClick={logGoogleUser}>
+            <Button type="button" buttonType="google" onClick={logGoogleUser}>
                 Google
             </Button>
         </Fragment>

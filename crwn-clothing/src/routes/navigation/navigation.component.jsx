@@ -19,9 +19,6 @@ function Navigation() {
                     <Link className="nav-link" to="/sign-in">
                         Sign In
                     </Link>
-                    <Link className="nav-link" to="/sign-up">
-                        Sign Up
-                    </Link>
                 </div>
             </div>
             <Outlet />

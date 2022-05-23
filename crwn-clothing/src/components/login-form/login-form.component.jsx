@@ -24,16 +24,20 @@ const SignInForm = () => {
         try {
             let response = await loginUser(email, password);
             if (response.status === 200) {
-                console.log("login Successful");
+                console.log("Incorrect Username or Password");
                 resetFormFields();
                 return;
             }
         } catch (e) {
             let response_code = e.response.status;
-            if (response_code === 401) {
-                alert("password or email is invalid");
-                return;
+            if (response_code === 400) {
+                alert("No User Found");
+            } else if (response_code === 401) {
+                alert("Incorrect Username or Password");
+            } else {
+                alert("Internal Server Error");
             }
+            return;
         }
     };
 
