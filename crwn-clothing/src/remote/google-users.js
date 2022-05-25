@@ -2,8 +2,7 @@ import { ecommerceClient } from "./ecommerce-client";
 
 export async function loginGoogleUser(user) {
     let response = await ecommerceClient.post("/google_login", user);
-    console.log(response.data);
-    return await response.data;
+    return await response;
 }
 
 export async function loginGoogleTest() {

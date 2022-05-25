@@ -10,7 +10,6 @@ function GLogin() {
             email: response.user.email,
             name: response.user.displayName,
         });
-        console.log(jsonEmail);
         await loginGoogleUser(jsonEmail);
         // response.addCookie(response.user.accessToken)
     };

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../../contexts/user.context";
 import { loginUser } from "../../remote/user";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
@@ -14,6 +15,8 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
+    const { setCurrentUser } = useContext(UserContext);
+
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     };
@@ -23,8 +26,10 @@ const SignInForm = () => {
 
         try {
             let response = await loginUser(email, password);
+            console.log(response.data.email);
+            setCurrentUser(response.data.email);
             if (response.status === 200) {
-                console.log("Incorrect Username or Password");
+                console.log("Logged In!!!!!");
                 resetFormFields();
                 return;
             }
@@ -40,7 +45,6 @@ const SignInForm = () => {
             return;
         }
     };
-
     const handleChange = (event) => {
         const { name, value } = event.target;
 
