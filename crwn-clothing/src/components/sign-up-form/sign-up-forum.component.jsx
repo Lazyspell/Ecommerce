@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../contexts/user.context";
 import { loginUser, newUser } from "../../remote/user";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
@@ -17,6 +18,8 @@ const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { first_name, last_name, email, password, confirm_password } =
         formFields;
+
+    const { setCurrentUser } = useContext(UserContext);
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
@@ -42,7 +45,8 @@ const SignUpForm = () => {
             );
             if (response.status === 201) {
                 console.log("new user created");
-                await loginUser(email, password);
+                const response = await loginUser(email, password);
+                setCurrentUser(response.data.email);
                 resetFormFields();
                 return;
             }
