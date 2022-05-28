@@ -29,9 +29,9 @@ const SignInForm = () => {
 
         try {
             let response = await loginUser(email, password);
-            setCurrentUser(response.data.email);
             if (response.status === 200) {
                 console.log("Logged In!!!!!");
+                setCurrentUser(response.data.email);
                 resetFormFields();
                 return;
             }
