@@ -1,16 +1,24 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import { UserContext } from "../../contexts/user.context";
 import { loginGoogleUser } from "../../remote/google-users";
 import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 import Button from "../button/button.component";
 
-function GLogin() {
+const GLogin = () => {
+    const { setCurrentUser } = useContext(UserContext);
+
     const logGoogleUser = async () => {
         const response = await signInWithGooglePopup();
+
         const jsonEmail = JSON.stringify({
             email: response.user.email,
             name: response.user.displayName,
         });
-        await loginGoogleUser(jsonEmail);
+
+        const googleUser = await loginGoogleUser(jsonEmail);
+        console.log(googleUser.data.email);
+        setCurrentUser(googleUser.data.email);
+
         // response.addCookie(response.user.accessToken)
     };
 
@@ -21,6 +29,6 @@ function GLogin() {
             </Button>
         </Fragment>
     );
-}
+};
 
 export default GLogin;
