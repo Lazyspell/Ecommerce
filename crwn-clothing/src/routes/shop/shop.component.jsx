@@ -1,20 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ProductContext } from "../../contexts/products.context";
 
 const Shop = () => {
-    const [hats, setHats] = useState([]);
+    const { products } = useContext(ProductContext);
 
-    useEffect(() => {
-        fetch("http://localhost:8080/hats/all")
-            .then((response) => response.json())
-            .then((items) => setHats(items));
-    }, []);
-
-    console.log(hats);
     return (
         <div>
-            {hats.map(({ id, hat_name }) => (
+            {products.map(({ id, product_name }) => (
                 <div key={id}>
-                    <h1>{hat_name}</h1>
+                    <h1>{product_name}</h1>
                 </div>
             ))}
         </div>
