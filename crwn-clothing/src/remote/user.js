@@ -1,6 +1,4 @@
 import { ecommerceClient } from "./ecommerce-client";
-import { useContext } from "react";
-import { UserContext } from "../contexts/user.context";
 
 export async function loginUser(email, password) {
     let response = await ecommerceClient.post("/login", {

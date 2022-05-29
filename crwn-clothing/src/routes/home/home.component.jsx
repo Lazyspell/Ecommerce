@@ -3,7 +3,7 @@ import "../../categories.styles.scss";
 
 import Directory from "../../components/directory/directory.component";
 
-function Home() {
+const Home = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -13,6 +13,6 @@ function Home() {
     }, []);
 
     return <Directory data={categories} />;
-}
+};
 
 export default Home;
