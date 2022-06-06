@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { allProducts } from "../remote/products";
 
 export const ProductContext = createContext({
     products: [],
@@ -6,12 +7,14 @@ export const ProductContext = createContext({
 
 export const ProductsProvider = ({ children }) => {
     useEffect(() => {
-        fetch("http://localhost:8080/product/all")
-            .then((response) => response.json())
-            .then((items) => setPRoducts(items));
+        const getProducts = async () => {
+            const items = await allProducts();
+            setProducts(items.data);
+        };
+        getProducts();
     }, []);
 
-    const [products, setPRoducts] = useState([]);
+    const [products, setProducts] = useState([]);
     const value = { products };
     return (
         <ProductContext.Provider value={value}>
