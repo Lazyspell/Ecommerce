@@ -4,3 +4,10 @@ export async function allProducts() {
     const response = await ecommerceClient.get("/product/all");
     return response;
 }
+
+export async function productsByCategories(item) {
+    let response = await ecommerceClient.get(
+        `/product/category?product=${item}`
+    );
+    return response;
+}
