@@ -4,6 +4,7 @@ import { allProducts, productsByCategories } from "../remote/products";
 export const ProductContext = createContext({
     products: [],
 });
+const items = ["Hats", "Sneakers", "Jackets", "Womens", "Mens"];
 
 export const ProductsProvider = ({ children }) => {
     useEffect(() => {
@@ -14,22 +15,9 @@ export const ProductsProvider = ({ children }) => {
         getProducts();
     }, []);
 
-    useEffect(() => {
-        const list = [];
-        const items = ["Hats", "Sneakers", "Jackets", "Womens", "Mens"];
-        for (const i of items) {
-            const getItems = async () => {
-                const item = await productsByCategories(i);
-                const itemObject = { [i]: item.data };
-                list.push(itemObject);
-            };
-            getItems();
-            console.log(list);
-        }
-    }, []);
-
     const [products, setProducts] = useState([]);
     const value = { products };
+    console.log(value);
     return (
         <ProductContext.Provider value={value}>
             {children}
