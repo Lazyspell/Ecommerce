@@ -4,7 +4,6 @@ import { allProducts, productsByCategories } from "../remote/products";
 export const ProductContext = createContext({
     products: [],
 });
-const items = ["Hats", "Sneakers", "Jackets", "Womens", "Mens"];
 
 export const ProductsProvider = ({ children }) => {
     useEffect(() => {
