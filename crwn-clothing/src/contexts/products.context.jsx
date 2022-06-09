@@ -1,5 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { allProducts, productsByCategories } from "../remote/products";
+import {
+    allProducts,
+    productsAsObjects,
+    productsByCategories,
+} from "../remote/products";
 
 export const ProductContext = createContext({
     products: [],
@@ -7,16 +11,16 @@ export const ProductContext = createContext({
 
 export const ProductsProvider = ({ children }) => {
     useEffect(() => {
-        const getProducts = async () => {
-            const items = await allProducts();
-            setProducts(items.data);
+        const getProductsObject = async () => {
+            const productObject = await productsAsObjects();
+            setProducts(productObject.data[0]);
         };
-        getProducts();
+        getProductsObject();
     }, []);
 
     const [products, setProducts] = useState([]);
     const value = { products };
-    console.log(value);
+
     return (
         <ProductContext.Provider value={value}>
             {children}
