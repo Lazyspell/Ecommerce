@@ -11,3 +11,8 @@ export async function productsByCategories(item) {
     );
     return response;
 }
+
+export async function productsAsObjects() {
+    let response = await ecommerceClient.get(`/test`);
+    return response;
+}
