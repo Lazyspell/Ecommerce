@@ -18,7 +18,7 @@ export const ProductsProvider = ({ children }) => {
         getProductsObject();
     }, []);
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState({});
     const value = { products };
 
     return (
