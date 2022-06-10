@@ -13,6 +13,6 @@ export async function productsByCategories(item) {
 }
 
 export async function productsAsObjects() {
-    let response = await ecommerceClient.get(`/test`);
+    let response = await ecommerceClient.get(`/products/category/object`);
     return response;
 }
