@@ -1,5 +1,17 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
+// import "./checkout-item.styles.jsx";
+// import {
+//     Arrow,
+//     CheckoutImage,
+//     ImageContainer,
+//     Name,
+//     Price,
+//     Quality,
+//     RemoveButton,
+//     Value,
+// } from "./checkout-item.styles.jsx";
+
 import "./checkout-item.styles.scss";
 
 const CheckoutItem = ({ cartItem }) => {
