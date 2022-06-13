@@ -7,7 +7,8 @@ import { loginUser } from "../../remote/user";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import GLogin from "./golang-google-sign-in.component";
-import "./login-form.scss";
+import "./login-form.jsx";
+import { ButtonContainer, LoginFormContainer } from "./login-form.jsx";
 
 const defaultFormFields = {
     email: "",
@@ -53,7 +54,7 @@ const SignInForm = () => {
         setFormFields({ ...formFields, [name]: value });
     };
     return (
-        <div className="login-form-container">
+        <LoginFormContainer>
             <h2>Sign in with your email and your password</h2>
             <form onSubmit={handleLogin}>
                 <FormInput
@@ -72,12 +73,12 @@ const SignInForm = () => {
                     name="password"
                     value={password}
                 />
-                <div className="buttons-container">
+                <ButtonContainer>
                     <Button>Login</Button>
                     <GLogin />
-                </div>
+                </ButtonContainer>
             </form>
-        </div>
+        </LoginFormContainer>
     );
 };
 
