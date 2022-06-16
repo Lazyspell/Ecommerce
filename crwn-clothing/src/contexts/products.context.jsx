@@ -1,9 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import {
-    allProducts,
-    productsAsObjects,
-    productsByCategories,
-} from "../remote/products";
+import { productsAsObjects } from "../remote/products";
 
 export const ProductContext = createContext({
     products: [],

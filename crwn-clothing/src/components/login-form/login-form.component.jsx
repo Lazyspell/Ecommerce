@@ -1,6 +1,4 @@
 import { useState, useContext } from "react";
-import Cookies from "js-cookie";
-import jwt_decode from "jwt-decode";
 
 import { UserContext } from "../../contexts/user.context";
 import { loginUser } from "../../remote/user";
